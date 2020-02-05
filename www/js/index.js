@@ -130,7 +130,7 @@ document.querySelector('div').addEventListener('click', function(e) {
 
     for (i in itemz) {
         if (e.target.classList[0] == itemz[i].id) {
-            clicked = e.target.classList[0];
+            selected = e.target.classList[0];
             console.log(e.target.classList[0] + ' ' + itemz[i].id);
 
             let tt = document.createElement('p');
@@ -184,7 +184,6 @@ document.querySelector('div').addEventListener('click', function(e) {
 });
 
 document.querySelector('.delete').addEventListener('click', () => {
-    console.log(selected);
     document
         .querySelector('.DetailsPage')
         .querySelector('.first')
@@ -209,37 +208,3 @@ document.querySelector('.delete').addEventListener('click', () => {
     let home = document.querySelector('.home');
     home.style.display = 'block';
 });
-
-// let storage = window.localStorage;
-// let review = {
-//     title: 'Chair',
-//     img: 'img/chair.png',
-//     rating: 5
-// };
-// let steve = [];
-// steve.push(review)
-// let item = JSON.stringify(review);
-// localStorage.setItem("test", JSON.stringify(steve))
-// lostorage.setItem('512b974faa9bcc4eac9622129c8b385da45c2cfe', item);
-// let test2 = localStorage.getItem("test");
-// let test3  = JSON.parse(test2)
-// let value = storage.getItem('512b974faa9bcc4eac9622129c8b385da45c2cfe');
-// let obj = JSON.parse(value);
-// console.log(obj.title);
-// let h1 = document.createElement('h1');
-// h1.textContent = obj.title;
-// document.body.appendChild(h1);
-// storage.removeItem(key);
-// });
-
-// let v = document.querySelector('.input');
-// v.addEventListener('keypress', e => {
-//     if (e.key == 'Enter') {
-//         console.log(v.value);
-//         v.value = '';
-//     }
-// });
-
-// document.querySelector('.btn').addEventListener('keypress', e => {
-//     navigator.camera.getPicture();
-// });
