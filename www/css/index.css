@@ -104,11 +104,6 @@ select {
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
-
-/* .home {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-} */
-
 .hs {
     display: flex;
     background-color: thistle;
@@ -132,4 +127,30 @@ select {
     margin-right: 4px;
     position: absolute;
     right: 0;
+}
+
+.DetailsPage {
+    text-align: center;
+}
+
+.first {
+    margin-top: 20px;
+    width: 200px;
+    height: 350px;
+}
+
+.DetailsPage p {
+    margin-right: 10px;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.delete {
+    position: absolute;
+    padding: 10px;
+    border: 1px solid red;
+    border-radius: 10px;
+    text-align: center;
+    bottom: 0;
+    right: 1%;
 }

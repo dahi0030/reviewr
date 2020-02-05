@@ -1,24 +1,7 @@
-// const app = {
-//     init: () => {
-//         let h1 = document.createElement('h1');
-//         h1.textContent = 'Hadi BABY';
-//         document.body.appendChild(h1);
-//         console.log('working baby');
-//     }
-// };
-// document.addEventListener(ready, app.init);
-
-// document.querySelector('.add').addEventListener('click', () => {
-//     let home = document.querySelector('.home');
-//     home.style.display = 'none';
-
-//     let reviewPage = document.querySelector('.reviewPage');
-//     reviewPage.style.display = 'block';
-// });
-
 let i;
 let index = 0;
 let itemz = [];
+let selected;
 
 document.querySelector('.back').addEventListener('click', () => {
     let home = document.querySelector('.home');
@@ -26,6 +9,9 @@ document.querySelector('.back').addEventListener('click', () => {
 
     let reviewPage = document.querySelector('.reviewPage');
     reviewPage.style.display = 'none';
+
+    let DetailsPage = document.querySelector('.DetailsPage');
+    DetailsPage.style.display = 'none';
 });
 
 function cam() {
@@ -119,7 +105,7 @@ document.querySelector('.save').addEventListener('click', () => {
     console.log(i);
 
     itemz.push({
-        id: today,
+        id: 'item' + index,
         img: i,
         name: title,
         rating: v.value
@@ -139,9 +125,89 @@ document.querySelector('.save').addEventListener('click', () => {
     document.querySelector('.fi').style.display = 'none';
 });
 
-document.addEventListener('click', function(e) {
-    //do something
-    console.log(e.target.className);
+document.querySelector('div').addEventListener('click', function(e) {
+    console.log(e.target.classList[0]);
+
+    for (i in itemz) {
+        if (e.target.classList[0] == itemz[i].id) {
+            clicked = e.target.classList[0];
+            console.log(e.target.classList[0] + ' ' + itemz[i].id);
+
+            let tt = document.createElement('p');
+            let rate = document.createElement('p');
+            let im = document.createElement('img');
+
+            im.src = itemz[i].img;
+            im.className = 'first';
+            tt.textContent = 'Title: ' + itemz[i].name;
+            tt.className = 'second';
+            rate.textContent = 'Rating: ' + itemz[i].rating + '/5';
+            rate.className = 'third';
+
+            document.querySelector('.DetailsPage').appendChild(im);
+            document.querySelector('.DetailsPage').appendChild(tt);
+            document.querySelector('.DetailsPage').appendChild(rate);
+
+            let home = document.querySelector('.home');
+            home.style.display = 'none';
+
+            let DetailsPage = document.querySelector('.DetailsPage');
+            DetailsPage.style.display = 'block';
+        }
+
+        document.querySelector('.try').addEventListener('click', () => {
+            console.log('he tried boss!');
+
+            let reviewPage = document.querySelector('.reviewPage');
+            reviewPage.style.display = 'none';
+
+            let DetailsPage = document.querySelector('.DetailsPage');
+            DetailsPage.style.display = 'none';
+
+            let home = document.querySelector('.home');
+            home.style.display = 'block';
+            document
+                .querySelector('.DetailsPage')
+                .querySelector('.first')
+                .remove();
+
+            document
+                .querySelector('.DetailsPage')
+                .querySelector('.second')
+                .remove();
+            document
+                .querySelector('.DetailsPage')
+                .querySelector('.third')
+                .remove();
+        });
+    }
+});
+
+document.querySelector('.delete').addEventListener('click', () => {
+    console.log(selected);
+    document
+        .querySelector('.DetailsPage')
+        .querySelector('.first')
+        .remove();
+
+    document
+        .querySelector('.DetailsPage')
+        .querySelector('.second')
+        .remove();
+    document
+        .querySelector('.DetailsPage')
+        .querySelector('.third')
+        .remove();
+    document.querySelector('.' + selected).remove();
+
+    let reviewPage = document.querySelector('.reviewPage');
+    reviewPage.style.display = 'none';
+
+    let DetailsPage = document.querySelector('.DetailsPage');
+    DetailsPage.style.display = 'none';
+
+    let home = document.querySelector('.home');
+    home.style.display = 'block';
 });
 
 // let storage = window.localStorage;
