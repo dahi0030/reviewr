@@ -126,6 +126,7 @@ document.querySelector('.save').addEventListener('click', () => {
 });
 
 document.querySelector('div').addEventListener('click', function(e) {
+    console.log(f);
     console.log(e.target.classList[0]);
 
     for (i in itemz) {
@@ -184,6 +185,8 @@ document.querySelector('div').addEventListener('click', function(e) {
 });
 
 document.querySelector('.delete').addEventListener('click', () => {
+    document.querySelector('.' + selected).remove();
+
     document
         .querySelector('.DetailsPage')
         .querySelector('.first')
@@ -197,7 +200,6 @@ document.querySelector('.delete').addEventListener('click', () => {
         .querySelector('.DetailsPage')
         .querySelector('.third')
         .remove();
-    document.querySelector('.' + selected).remove();
 
     let reviewPage = document.querySelector('.reviewPage');
     reviewPage.style.display = 'none';
