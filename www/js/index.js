@@ -58,9 +58,6 @@ document.querySelector('.save').addEventListener('click', () => {
     let title = input.value;
     let rating = v.value;
 
-    console.log(input.value);
-    console.log(v.value);
-
     let today = new Date();
     let day = today.getDate();
 
@@ -76,9 +73,14 @@ document.querySelector('.save').addEventListener('click', () => {
     today = month + '-' + day + '-' + year;
 
     let img = document.createElement('img');
+    img.className = 'item' + index;
+
     let p = document.createElement('p');
+    p.className = 'item' + index;
+
     let item = document.createElement('div');
     let date = document.createElement('p');
+    date.className = 'item' + index;
 
     let s = 'item' + index;
 
@@ -95,14 +97,13 @@ document.querySelector('.save').addEventListener('click', () => {
         img.src = 'Icons/no-image.png';
     }
     date.textContent = today;
-    date.className = 'date';
+
+    date.classList.add('item' + index, 'date');
 
     document.querySelector('.home').appendChild(item);
     document.querySelector('.item' + index).appendChild(img);
     document.querySelector('.item' + index).appendChild(p);
     document.querySelector('.item' + index).appendChild(date);
-
-    console.log(i);
 
     itemz.push({
         id: 'item' + index,
@@ -110,8 +111,6 @@ document.querySelector('.save').addEventListener('click', () => {
         name: title,
         rating: v.value
     });
-
-    console.log(itemz);
 
     input.value = '';
     v.value = '1';
@@ -126,13 +125,9 @@ document.querySelector('.save').addEventListener('click', () => {
 });
 
 document.querySelector('div').addEventListener('click', function(e) {
-    console.log(f);
-    console.log(e.target.classList[0]);
-
     for (i in itemz) {
         if (e.target.classList[0] == itemz[i].id) {
             selected = e.target.classList[0];
-            console.log(e.target.classList[0] + ' ' + itemz[i].id);
 
             let tt = document.createElement('p');
             let rate = document.createElement('p');
@@ -157,8 +152,6 @@ document.querySelector('div').addEventListener('click', function(e) {
         }
 
         document.querySelector('.try').addEventListener('click', () => {
-            console.log('he tried boss!');
-
             let reviewPage = document.querySelector('.reviewPage');
             reviewPage.style.display = 'none';
 
